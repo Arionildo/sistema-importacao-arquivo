@@ -1,6 +1,7 @@
 package br.com.importacaoarquivo.service.cliente.components;
 
 import br.com.importacaoarquivo.model.Cliente;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ public class ClienteData {
 
     private final HashMap<String, Cliente> clienteHashMap;
 
+    @Autowired
     public ClienteData() {
         clienteHashMap = new HashMap<>();
     }

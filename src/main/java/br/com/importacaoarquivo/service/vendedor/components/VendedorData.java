@@ -1,6 +1,7 @@
 package br.com.importacaoarquivo.service.vendedor.components;
 
 import br.com.importacaoarquivo.model.Vendedor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -10,6 +11,7 @@ public class VendedorData {
 
     private final HashMap<String, Vendedor> vendedorHashMap;
 
+    @Autowired
     public VendedorData() {
         vendedorHashMap = new HashMap<>();
     }

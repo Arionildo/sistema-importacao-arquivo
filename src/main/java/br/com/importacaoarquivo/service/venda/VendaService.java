@@ -5,6 +5,7 @@ import br.com.importacaoarquivo.service.venda.components.VendaData;
 import br.com.importacaoarquivo.service.venda.components.VendaProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,7 @@ public class VendaService {
     private final VendaData vendaData;
     private final VendaProcessor vendaProcessor;
 
+    @Autowired
     public VendaService(VendaData vendaData, VendaProcessor vendaProcessor) {
         this.vendaData = vendaData;
         this.vendaProcessor = vendaProcessor;

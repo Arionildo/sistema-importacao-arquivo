@@ -10,6 +10,7 @@ import br.com.importacaoarquivo.strategy.VendedorTipoLinhaStrategy;
 import br.com.importacaoarquivo.strategy.interfaces.TipoLinha;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +24,9 @@ public class LeitorService {
 	private final VendedorService vendedorService;
 	private final VendaService vendaService;
 	private final String separator;
-
 	private final List<TipoLinha> listaTipoLinha;
 
+	@Autowired
 	public LeitorService(ClienteService clienteService,
 	                     VendedorService vendedorService,
 	                     VendaService vendaService,

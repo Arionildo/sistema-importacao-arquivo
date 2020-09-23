@@ -1,6 +1,7 @@
 package br.com.importacaoarquivo.service.venda.components;
 
 import br.com.importacaoarquivo.model.Venda;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -17,6 +18,7 @@ public class VendaData {
 
     private final List<Venda> listaVenda;
 
+    @Autowired
     public VendaData() {
         this.listaVenda = new ArrayList<>();
     }

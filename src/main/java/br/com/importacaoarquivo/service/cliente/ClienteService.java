@@ -5,6 +5,7 @@ import br.com.importacaoarquivo.service.cliente.components.ClienteData;
 import br.com.importacaoarquivo.service.cliente.components.ClienteProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,7 @@ public class ClienteService {
     private final ClienteData clienteData;
     private final ClienteProcessor clienteProcessor;
 
+    @Autowired
     public ClienteService(ClienteData clienteData, ClienteProcessor clienteProcessor) {
         this.clienteData = clienteData;
         this.clienteProcessor = clienteProcessor;

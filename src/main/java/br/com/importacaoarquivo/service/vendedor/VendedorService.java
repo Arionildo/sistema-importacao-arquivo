@@ -5,6 +5,7 @@ import br.com.importacaoarquivo.service.vendedor.components.VendedorData;
 import br.com.importacaoarquivo.service.vendedor.components.VendedorProcessor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -14,6 +15,7 @@ public class VendedorService {
     private final VendedorProcessor vendedorProcessor;
     private final Logger logger = LoggerFactory.getLogger(VendedorService.class);
 
+    @Autowired
     public VendedorService(VendedorData vendedorData, VendedorProcessor vendedorProcessor) {
         this.vendedorData = vendedorData;
         this.vendedorProcessor = vendedorProcessor;
