@@ -1,0 +1,12 @@
+file:
+  in:
+    folder: /data/in
+    type: '*.dat'
+  out:
+    folder: /data/out
+separator: ç
+
+poller:
+  period: 1000
+  maxmessagesperpoll: 5
+
