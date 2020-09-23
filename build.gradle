@@ -1,37 +1,27 @@
 plugins {
-	id 'org.springframework.boot' version '2.2.10.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'org.springframework.boot' version '2.2.9.RELEASE'
 	id 'java'
 }
 
-group = 'br.com'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'sistema-importacao-arquivo'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
-
-configurations {
-	developmentOnly
-	runtimeClasspath {
-		extendsFrom developmentOnly
-	}
-	compileOnly {
-		extendsFrom annotationProcessor
-	}
-}
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-	compileOnly 'org.projectlombok:lombok'
-	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation('org.springframework.boot:spring-boot-starter-test') {
-		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-	}
-}
+	compile 'org.springframework.boot:spring-boot-starter-integration'
+	compile 'org.springframework.integration:spring-integration-file'
+	compile group: 'org.springframework.boot', name: 'spring-boot-devtools', version: '2.2.9.RELEASE'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-test {
-	useJUnitPlatform()
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 }
