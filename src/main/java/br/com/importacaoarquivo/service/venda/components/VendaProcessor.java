@@ -5,6 +5,7 @@ import br.com.importacaoarquivo.model.Venda;
 import br.com.importacaoarquivo.model.Vendedor;
 import br.com.importacaoarquivo.service.interfaces.ProcessaLinha;
 import br.com.importacaoarquivo.service.vendedor.VendedorService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -23,6 +24,7 @@ public class VendaProcessor implements ProcessaLinha {
 
     private final VendedorService vendedorService;
 
+    @Autowired
     public VendaProcessor(VendedorService vendedorService) {
         this.vendedorService = vendedorService;
     }
