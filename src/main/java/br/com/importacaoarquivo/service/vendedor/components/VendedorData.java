@@ -25,7 +25,7 @@ public class VendedorData {
                 .stream()
                 .filter(vendedor -> vendedor.getNome().equals(nome))
                 .findFirst()
-                .orElseGet(null);
+                .orElseGet(Vendedor::new);
     }
 
     public int getQuantidadeVendedores() {

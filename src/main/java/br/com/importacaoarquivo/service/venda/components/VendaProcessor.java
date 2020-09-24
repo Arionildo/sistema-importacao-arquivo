@@ -1,5 +1,7 @@
 package br.com.importacaoarquivo.service.venda.components;
 
+import br.com.importacaoarquivo.enums.CampoItemVenda;
+import br.com.importacaoarquivo.enums.CampoVenda;
 import br.com.importacaoarquivo.model.ItemVenda;
 import br.com.importacaoarquivo.model.Venda;
 import br.com.importacaoarquivo.model.Vendedor;
@@ -13,12 +15,6 @@ import java.math.BigDecimal;
 @Component
 public class VendaProcessor implements ProcessaLinha {
 
-    private static final int POSICAO_VENDA = 1;
-    private static final int POSICAO_VENDEDOR = 3;
-    private static final int POSICAO_QUANTIDADE = 1;
-    private static final int POSICAO_ID_ITEM = 0;
-    private static final int POSICAO_ITEM = 2;
-    private static final int POSICAO_PRECO = 2;
     private static final String SEPARADOR_ITEM = ",";
     private static final String SEPARADOR_CAMPOS_ITEM = "-";
 
@@ -31,10 +27,10 @@ public class VendaProcessor implements ProcessaLinha {
 
     @Override
     public Venda processarLinha(String[] linha) {
-        int id = Integer.parseInt(linha[POSICAO_VENDA]);
-        String item = linha[POSICAO_ITEM];
+        int id = Integer.parseInt(linha[CampoVenda.ID.getId()]);
+        String item = linha[CampoVenda.ITEM.getId()];
         item = item.substring(1, item.length() - 2);
-        String nomeVendedor = linha[POSICAO_VENDEDOR];
+        String nomeVendedor = linha[CampoVenda.VENDEDOR.getId()];
         Vendedor vendedor = vendedorService.getNomePiorVendedor(nomeVendedor);
         Venda venda = new Venda(id, vendedor, nomeVendedor);
         String[] itens = item.split(SEPARADOR_ITEM);
@@ -45,9 +41,9 @@ public class VendaProcessor implements ProcessaLinha {
     private Venda processarItens(Venda venda, String[] itens) {
         for (String itemAtual : itens) {
             String[] campos = itemAtual.split(SEPARADOR_CAMPOS_ITEM);
-            Long id = Long.parseLong(campos[POSICAO_ID_ITEM]);
-            Double quantidade = Double.parseDouble(campos[POSICAO_QUANTIDADE]);
-            BigDecimal preco = BigDecimal.valueOf(Double.parseDouble(campos[POSICAO_PRECO]));
+            Long id = Long.parseLong(campos[CampoItemVenda.ID.getId()]);
+            Double quantidade = Double.parseDouble(campos[CampoItemVenda.QUANTIDADE.getId()]);
+            BigDecimal preco = BigDecimal.valueOf(Double.parseDouble(campos[CampoItemVenda.PRECO.getId()]));
             ItemVenda itemVenda = ItemVenda.builder()
                     .id(id)
                     .quantidade(quantidade)
